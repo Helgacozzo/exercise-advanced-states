@@ -4,7 +4,7 @@ export default function ListaInvitati() {
 
     const [lista, setLista] = useState([]);
     const [newElement, setNewElement] = useState('');
-    const [saluto, setSaluto] = useState('')
+    const [message, setMessage] = useState('')
 
     return (
 
@@ -38,10 +38,10 @@ export default function ListaInvitati() {
                         }}>Rimuovi</button>
 
                         <button onClick={() => {
-                            setSaluto(`Ciao, ${element}!`)
+                            setMessage(<>Ciao {element}!</>)
                         }}>Saluta!</button>
 
-                        <p>{saluto}</p>
+                        <p>{message}</p>
 
                     </li>
 

@@ -9,8 +9,6 @@ export default function RegistrationForm() {
         sex: ''
     });
 
-    const [isButtonPressed, setIsButtonPressed] = useState(false);
-
     return (
         <>
             <h4>Inserisci i tuoi dati</h4>
@@ -50,49 +48,49 @@ export default function RegistrationForm() {
                 >
                     <option value="rosso">Rosso</option>
                     <option value="verde">Verde</option>
-                    <option value="blu">Blu</option>
+                    <option value="blu">Blu</option>npm
                 </select>
             </div>
 
             <br />
 
-            <div>
-                <input
-                    type="radio"
-                    id="maschio"
-                    checked={formData.sex === 'maschio'}
-                    onChange={() => setFormData({
-                        ...formData,
-                        sex: 'maschio'
-                    })}
-                />
-                <label htmlFor="maschio">Maschio</label>
+            <label>
+                <h3>Sex:</h3>
+                <div>
+                    Male
+                    <input
+                        type="radio"
+                        name="sex"
+                        value="m"
+                        checked={formData.sex === 'm'}
+                        onChange={(e) => setFormData({
+                            ...formData,
+                            sex: e.target.value
+                        })}
+                    />
+                </div>
 
-                <input
-                    type="radio"
-                    id="femmina"
-                    checked={formData.sex === 'femmina'}
-                    onChange={() => setFormData({
-                        ...formData,
-                        sex: 'femmina'
-                    })}
-                />
-                <label htmlFor="femmina">Femmina</label>
-            </div>
+                <div>
+                    Female
+                    <input
+                        type="radio"
+                        name="sex"
+                        value="f"
+                        checked={formData.sex === 'f'}
+                        onChange={(e) => setFormData({
+                            ...formData,
+                            sex: e.target.value
+                        })}
+                    />
+                </div>
+
+            </label>
 
             <br />
 
             <button onClick={() => {
-                setIsButtonPressed(true)
+                console.log(formData);
             }}>Registrati</button>
-
-            <div>
-                {isButtonPressed &&
-                    <p>Ciao, la tua email è: {formData.email},
-                        il tuo colore preferito è: {formData.colorePreferito},
-                    </p>
-                }
-            </div>
 
             <br />
             <hr />
